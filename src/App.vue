@@ -6,11 +6,12 @@ import HelloWorld from '@/components/HelloWorld.vue'
 <template>
   <header>
     <img
+      ma4
       alt="Vue logo"
       class="logo"
-      src="@/assets/logo.svg"
-      width="125"
       height="125"
+      width="125"
+      src="@/assets/logo.svg"
     />
 
     <div class="wrapper">
@@ -19,6 +20,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <button class="color-green w-20 h-10 bg-slate">test</button>
       </nav>
     </div>
   </header>
