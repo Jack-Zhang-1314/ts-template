@@ -48,6 +48,28 @@ pnpm run prettier
 pnpm run commit
 ```
 
+1. 可以使用自定义的提交风格在`.cz-config.js`中配置
+   * 这里需要下载`pnpm add cz-customizable -D`
+
+   ```json
+   "config": {
+     "commitizen": {
+       "path":"./node_modules/cz-customizable"
+     }
+   }
+   ```
+
+2. 或者可以使用传统的提交风格
+   * 这里需要下载`pnpm add cz-conventional-changelog -D`
+
+   ```json
+   "config": {
+     "commitizen": {
+       "path": "./node_modules/cz-conventional-changelog"
+     }
+   }
+   ```
+
 ### version
 
 > 查看每次版本更迭信息
