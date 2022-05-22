@@ -3,6 +3,7 @@
 import { fileURLToPath, URL } from 'url'
 import Unocss from 'unocss/vite'
 import presetUno from '@unocss/preset-uno'
+import presetAttributify from '@unocss/preset-attributify'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
@@ -12,7 +13,7 @@ export default defineConfig({
   plugins: [
     vue(),
     Unocss({
-      presets: [presetUno()],
+      presets: [presetUno(), presetAttributify()],
       rules: [],
     }),
   ],

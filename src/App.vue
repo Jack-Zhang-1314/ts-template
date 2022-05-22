@@ -20,7 +20,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <button class="color-green w-20 h-10 bg-slate">test</button>
+        <button color-green w-20 h-10 bg-slate>test</button>
       </nav>
     </div>
   </header>
