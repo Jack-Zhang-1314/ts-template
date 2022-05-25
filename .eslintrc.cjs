@@ -8,10 +8,13 @@ module.exports = {
     'eslint:recommended',
     '@vue/eslint-config-typescript/recommended',
     '@vue/eslint-config-prettier',
+    //自己编写的规则
     'plugin:prettier/recommended',
   ],
   env: {
     'vue/setup-compiler-macros': true,
   },
-  rules: {},
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
 }
