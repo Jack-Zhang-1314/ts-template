@@ -10,8 +10,9 @@ export interface IhttpCustomerOption {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface IDataType<T = any> {
-  status?: number
-  data?: T
+  status: number
+  data: T
+  msg: string
 }
 
 export interface IErrorType {

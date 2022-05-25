@@ -1,5 +1,6 @@
 import type { IhttpCustomerOption } from './type'
 import { handleFetchData } from './fetch'
+
 export function get<T = any>(
   url: string,
   params?: RequestInit,

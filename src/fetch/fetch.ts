@@ -1,11 +1,12 @@
 import type { IhttpCustomerOption, IDataType, IErrorType } from './type'
+
 /**
  * A function that handles the fetch request.
  * @param {string} fetchUrl - The request address
  * @param {RequestInit} params - RequestInit
  * @param {IhttpCustomerOption} httpCustomerOperation - IhttpCustomerOption
  */
-export function handleFetchData<T = any>(
+export function handleFetchData<T = IDataType>(
   fetchUrl: string,
   params: RequestInit,
   httpCustomerOperation: IhttpCustomerOption,
@@ -50,13 +51,13 @@ export function handleFetchData<T = any>(
               //     break
               //   case 0 || undefined:
               //     //业务逻辑报错
-              //     reject(handleFailedResult(jsonData, httpCustomerOperation))
+              //     reject(handleResult(jsonData, httpCustomerOperation))
               //     break
               //   default:
               //     // 正常返回
               //     resolve(handleResult(jsonData, httpCustomerOperation))
               // }
-              console.log(handleResult(jsonData, httpCustomerOperation))
+              resolve(handleResult(jsonData, httpCustomerOperation))
             } else {
               //接口判断
               //* status<200 || status>=300
@@ -113,25 +114,22 @@ export function handleFetchData<T = any>(
 /* 处理后台返回的结果,包括业务逻辑的报错
  * 通过isHandleResult统一判断是否需要处理
  */
-function handleResult(
-  result: IDataType & IErrorType,
-  httpCustomerOperation: IhttpCustomerOption,
-) {
-  if (result.status && httpCustomerOperation.isHandleResult) {
+function handleResult(result: any, httpCustomerOperation: IhttpCustomerOption) {
+  if (!!result.status && httpCustomerOperation.isHandleResult) {
     //处理错误结果
-    const errMsg = result.error || '服务器繁忙，请稍后再试'
+    const errMsg = result.msg || '服务器繁忙，请稍后再试'
     console.log(`出现业务错误${errMsg}`)
   }
   return result
 }
 
 function handleFailedResult(
-  result: IDataType & IErrorType,
+  result: IErrorType,
   httpCustomerOperation: IhttpCustomerOption,
 ) {
-  if (result.status && httpCustomerOperation.isHandleResult === true) {
+  if (httpCustomerOperation.isHandleResult === true) {
     const errMsg = result.error || '服务器开小差了，稍后再试吧'
-    console.log(`${errMsg},${result.status}`)
+    console.log(`${errMsg},${result.netStatus}`)
   }
   const errorMsg =
     'Uncaught PromiseError: ' +
