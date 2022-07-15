@@ -1,6 +1,36 @@
 {
   "name": "ts-template",
+  "type": "module",
+  "author": "Jack-Zhang <zyj17715640603@gmail.com>",
   "version": "0.0.0",
+  "main": "./dist/index.mjs",
+  "packageManager": "pnpm@7.1.7",
+  "description": "",
+  "license": "MIT",
+  "funding":"https://github.com/sponsors/Jack-Zhang-1314",
+  "homepage": "https://github.com/Jack-Zhang-1314/ts-template#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jack-Zhang-1314/ts-template.git"
+  },
+  "bugs": "https://github.com/Jack-Zhang-1314/ts-template/issues",
+  "keywords": [],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*":{
+      "*":[
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
